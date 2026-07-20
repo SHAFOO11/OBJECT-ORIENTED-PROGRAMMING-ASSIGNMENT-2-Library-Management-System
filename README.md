@@ -12,9 +12,9 @@ late-fee calculation, searching the catalog, and saving/loading data to a file.
 |-----|-------------------------------|---------------|---------|
 | 1   | Ali Sharif Abdulkadir Sharif  | 202505010493  | BCSSE   |
 | 2   | Bawazir Bandar Khaled Salem   | 202401010116  | BCSSE   |
-| 3   | Ali Yousef Jalal Abdo         | 202401010131  | IT      |
+| 3   | Ali Yousef Jalal Abdo         | 202401010131  | BIT     |
 | 4   | Ahmed Mohammed Fadul Mohammed | 202401010432  | BCSSE   |
-| 5   | Ali Ali Isak                  | 202401010128  | IT      |
+| 5   | Ali Ali Isak                  | 202401010128  | BIT     |
 
 ## Project Structure
 
