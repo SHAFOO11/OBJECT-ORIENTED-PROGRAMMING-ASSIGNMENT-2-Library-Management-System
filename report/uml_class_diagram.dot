@@ -1,0 +1,46 @@
+digraph LibrarySystem {
+  rankdir=TB;
+  splines=ortho;
+  nodesep=0.65;
+  ranksep=0.9;
+  bgcolor="white";
+  node [fontname="Helvetica"];
+  edge [fontname="Helvetica", fontsize=9, color="#333333", penwidth=1.1];
+
+  Person [shape=plaintext, fontname="Helvetica", fontsize=11, label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6" COLOR="#9370DB"><TR><TD BGCOLOR="#ECECFF"><FONT POINT-SIZE="10"><I>&laquo;abstract&raquo;</I></FONT><BR/><B>Person</B></TD></TR><TR><TD BGCOLOR="#ECECFF" ALIGN="LEFT">- name : String<BR ALIGN="LEFT"/>- id : String<BR ALIGN="LEFT"/>- contactNumber : String<BR ALIGN="LEFT"/></TD></TR><TR><TD BGCOLOR="#ECECFF" ALIGN="LEFT">+ getName() : String<BR ALIGN="LEFT"/>+ setName(name) : void<BR ALIGN="LEFT"/>+ getContactNumber() : String<BR ALIGN="LEFT"/>+ setContactNumber(contactNumber) : void<BR ALIGN="LEFT"/><I>+ displayDetails() : String</I><BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+  Member [shape=plaintext, fontname="Helvetica", fontsize=11, label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6" COLOR="#9370DB"><TR><TD BGCOLOR="#ECECFF"><B>Member</B></TD></TR><TR><TD BGCOLOR="#ECECFF" ALIGN="LEFT">- membershipId : String<BR ALIGN="LEFT"/>- borrowedCount : int<BR ALIGN="LEFT"/>- fineBalance : double<BR ALIGN="LEFT"/></TD></TR><TR><TD BGCOLOR="#ECECFF" ALIGN="LEFT">+ getMembershipId() : String<BR ALIGN="LEFT"/>+ incrementBorrowedCount() : void<BR ALIGN="LEFT"/>+ decrementBorrowedCount() : void<BR ALIGN="LEFT"/>+ getFineBalance() : double<BR ALIGN="LEFT"/>+ addFine(amount) : void<BR ALIGN="LEFT"/>+ displayDetails() : String<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+  Librarian [shape=plaintext, fontname="Helvetica", fontsize=11, label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6" COLOR="#9370DB"><TR><TD BGCOLOR="#ECECFF"><B>Librarian</B></TD></TR><TR><TD BGCOLOR="#ECECFF" ALIGN="LEFT">- staffId : String<BR ALIGN="LEFT"/>- department : String<BR ALIGN="LEFT"/></TD></TR><TR><TD BGCOLOR="#ECECFF" ALIGN="LEFT">+ getStaffId() : String<BR ALIGN="LEFT"/>+ getDepartment() : String<BR ALIGN="LEFT"/>+ displayDetails() : String<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+  LibraryItem [shape=plaintext, fontname="Helvetica", fontsize=11, label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6" COLOR="#9370DB"><TR><TD BGCOLOR="#ECECFF"><FONT POINT-SIZE="10"><I>&laquo;abstract&raquo;</I></FONT><BR/><B>LibraryItem</B></TD></TR><TR><TD BGCOLOR="#ECECFF" ALIGN="LEFT">- itemId : String<BR ALIGN="LEFT"/>- title : String<BR ALIGN="LEFT"/>- available : boolean<BR ALIGN="LEFT"/></TD></TR><TR><TD BGCOLOR="#ECECFF" ALIGN="LEFT">+ getItemId() : String<BR ALIGN="LEFT"/>+ getTitle() : String<BR ALIGN="LEFT"/>+ isAvailable() : boolean<BR ALIGN="LEFT"/>+ setAvailable(available) : void<BR ALIGN="LEFT"/><I>+ calculateLateFee(daysLate) : double</I><BR ALIGN="LEFT"/><I>+ getItemType() : String</I><BR ALIGN="LEFT"/>+ displaySummary() : String<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+  Book [shape=plaintext, fontname="Helvetica", fontsize=11, label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6" COLOR="#9370DB"><TR><TD BGCOLOR="#ECECFF"><B>Book</B></TD></TR><TR><TD BGCOLOR="#ECECFF" ALIGN="LEFT">- author : String<BR ALIGN="LEFT"/>- isbn : String<BR ALIGN="LEFT"/></TD></TR><TR><TD BGCOLOR="#ECECFF" ALIGN="LEFT">+ calculateLateFee(daysLate) : double<BR ALIGN="LEFT"/>+ getItemType() : String<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+  DVD [shape=plaintext, fontname="Helvetica", fontsize=11, label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6" COLOR="#9370DB"><TR><TD BGCOLOR="#ECECFF"><B>DVD</B></TD></TR><TR><TD BGCOLOR="#ECECFF" ALIGN="LEFT">- director : String<BR ALIGN="LEFT"/>- durationMinutes : int<BR ALIGN="LEFT"/></TD></TR><TR><TD BGCOLOR="#ECECFF" ALIGN="LEFT">+ calculateLateFee(daysLate) : double<BR ALIGN="LEFT"/>+ getItemType() : String<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+  Loan [shape=plaintext, fontname="Helvetica", fontsize=11, label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6" COLOR="#9370DB"><TR><TD BGCOLOR="#ECECFF"><B>Loan</B></TD></TR><TR><TD BGCOLOR="#ECECFF" ALIGN="LEFT">- member : Member<BR ALIGN="LEFT"/>- item : LibraryItem<BR ALIGN="LEFT"/>- borrowDate : String<BR ALIGN="LEFT"/>- returned : boolean<BR ALIGN="LEFT"/></TD></TR><TR><TD BGCOLOR="#ECECFF" ALIGN="LEFT">+ calculateFine(daysLate) : double<BR ALIGN="LEFT"/>+ markReturned() : void<BR ALIGN="LEFT"/>+ displaySummary() : String<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+  Library [shape=plaintext, fontname="Helvetica", fontsize=11, label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6" COLOR="#9370DB"><TR><TD BGCOLOR="#ECECFF"><B>Library</B></TD></TR><TR><TD BGCOLOR="#ECECFF" ALIGN="LEFT">- members : List&lt;Member&gt;<BR ALIGN="LEFT"/>- librarians : List&lt;Librarian&gt;<BR ALIGN="LEFT"/>- items : List&lt;LibraryItem&gt;<BR ALIGN="LEFT"/>- loans : List&lt;Loan&gt;<BR ALIGN="LEFT"/></TD></TR><TR><TD BGCOLOR="#ECECFF" ALIGN="LEFT">+ registerMember(member) : void<BR ALIGN="LEFT"/>+ registerLibrarian(librarian) : void<BR ALIGN="LEFT"/>+ addItem(item) : void<BR ALIGN="LEFT"/>+ borrowItem(memberId, itemId, borrowDate) : boolean<BR ALIGN="LEFT"/>+ returnItem(itemId, daysLate) : double<BR ALIGN="LEFT"/>+ searchItemsByTitle(keyword) : List<BR ALIGN="LEFT"/>+ saveToFile() : void<BR ALIGN="LEFT"/>+ loadFromFile() : void<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+  Main [shape=plaintext, fontname="Helvetica", fontsize=11, label=<<TABLE BORDER="1" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6" COLOR="#9370DB"><TR><TD BGCOLOR="#ECECFF"><B>Main</B></TD></TR><TR><TD BGCOLOR="#ECECFF" ALIGN="LEFT">+ main(args) : void<BR ALIGN="LEFT"/></TD></TR></TABLE>>];
+
+  { rank=same; Main; }
+  { rank=same; Library; }
+  { rank=same; Person; LibraryItem; }
+  { rank=same; Librarian; Member; Loan; Book; DVD; }
+
+  Person -> LibraryItem [style=invis];
+  Librarian -> Member [style=invis];
+  Member -> Loan [style=invis];
+  Loan -> Book [style=invis];
+  Book -> DVD [style=invis];
+
+  Person -> Member [dir=back, arrowtail=onormal, arrowsize=1.3, weight=10];
+  Person -> Librarian [dir=back, arrowtail=onormal, arrowsize=1.3, weight=10];
+  LibraryItem -> Book [dir=back, arrowtail=onormal, arrowsize=1.3, weight=10];
+  LibraryItem -> DVD [dir=back, arrowtail=onormal, arrowsize=1.3, weight=10];
+
+  Loan -> Member [arrowhead=vee, arrowsize=0.9, xlabel="borrowed by", taillabel="many", headlabel="1", labeldistance=1.8, weight=5, constraint=false];
+  Loan -> LibraryItem [arrowhead=vee, arrowsize=0.9, xlabel="refers to", taillabel="many", headlabel="1", labeldistance=1.8, weight=5, constraint=false];
+
+  Library -> Member [dir=both, arrowtail=odiamond, arrowhead=none, xlabel="registers", taillabel="1", headlabel="many", labeldistance=1.8, weight=3];
+  Library -> Librarian [dir=both, arrowtail=odiamond, arrowhead=none, xlabel="registers", taillabel="1", headlabel="many", labeldistance=1.8, weight=3];
+  Library -> LibraryItem [dir=both, arrowtail=odiamond, arrowhead=none, xlabel="catalogs", taillabel="1", headlabel="many", labeldistance=1.8, weight=8];
+  Library -> Loan [dir=both, arrowtail=odiamond, arrowhead=none, xlabel="tracks", taillabel="1", headlabel="many", labeldistance=1.8, weight=8];
+
+  Main -> Library [style=dashed, arrowhead=vee, xlabel="uses", weight=10];
+
+}
