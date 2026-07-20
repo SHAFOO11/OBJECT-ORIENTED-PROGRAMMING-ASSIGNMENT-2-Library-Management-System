@@ -11,7 +11,7 @@ late-fee calculation, searching the catalog, and saving/loading data to a file.
 | No. | Name                          | Student ID    | Program |
 |-----|-------------------------------|---------------|---------|
 | 1   | Ali Sharif Abdulkadir Sharif  | 202505010493  | BCSSE   |
-| 2   | Bawazir Bandar Khaled Salem   | 202401010116  | BCSSE   |
+| 2   | bawazir bandar khaled salem   | 202401010116  | BCSSE   |
 | 3   | Ali Yousef Jalal Abdo         | 202401010131  | BIT     |
 | 4   | Ahmed Mohammed Fadul Mohammed | 202401010432  | BCSSE   |
 | 5   | Ali Ali Isak                  | 202401010128  | BIT     |
